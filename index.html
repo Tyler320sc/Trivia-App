@@ -11,8 +11,48 @@
     <title>Trivia</title>
   </head>
   <body>
-    <p id="question"></p>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="script.js"></script>
+    <script src="https://use.fontawesome.com/4a52d3023a.js"></script>
+    <section class="hero is-primary">
+      <div class="hero-body">
+        <div class="container">
+          <h1 class="title is-1">Computer Science Trivia</h1>
+          <!-- <h2 class="subtitle">Computer Science History</h2> -->
+        </div>
+      </div>
+    </section>
+    <div class="column">
+      <div class="card">
+        <div class="card-content" id="question"></div>
+      </div>
+      <footer class="card-footer">
+        <div class="card-footer-item">
+          <a href="#" id="true" class="button is-success is-large">
+            <i class="fa fa-thumbs-o-up"></i>
+          </a>
+        </div>
+        <div class="card-footer-item">
+          <a href="#" id="false" class="button is-danger is-large">
+            <i class="fa fa-thumbs-o-down"></i>
+          </a>
+        </div>
+        <div class="card-footer-item">
+          <a href="#" id="next-question" class="button is-info is-large">
+            Next Question
+            <!-- <i class="fas fa-angle-right"></i> -->
+          </a>
+        </div>
+      </footer>
+    </div>
+    <section>
+      <!-- <p id="question"></p> -->
+      <!-- <a href="#" id="true" class="button is-primary small">True</a>
+      <a href="#" id="false" class="button is-primary small">false</a> -->
+      <div id="response-msg"></div>
+      <!-- <a href="#" id="next-question" class="button is-primary is-large"
+        >Next Question</a
+      > -->
+    </section>
   </body>
 </html>
