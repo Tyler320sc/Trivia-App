@@ -1,51 +1,58 @@
-// const removeDuplicates = (arr) =>
-//   arr.split().reduce((acc, x) => {
-//     if (!acc.includes(x)) {
-//       return [...acc, x];
-//     } else {
-//       return acc;
-//     }
-//   }, []);
-//   console.log(removeDuplicates([1, 1, 1, 2, 3, 4, 4, 2, 2]));
+function decodeHtml(html) {
+  var txt = document.createElement("textarea");
+  txt.innerHTML = html;
+  return txt.value;
+}
 
-(async () => {
-  const response = await axios.get(
-    "https://opentdb.com/api.php?amount=1&category=18&type=boolean"
-  );
-  const questions = response.data.results[0].question;
-  //   console.log(typeof questions);
-
-  const questionText = document.querySelector("#question");
-  questionText.textContent = questions;
-  //   console.log(typeof questions);
-
-  const nextQuestion = document.querySelector("#next-question");
-  nextQuestion.onclick = () => {
-    // add logic to save question to arr ? ? ?
-    document.location.reload();
-  };
-
-  const correctAnswer = response.data.results[0].correct_answer;
-
+window.onload = async () => {
   const responseText = document.querySelector("#response-msg");
-
   const trueBtn = document.querySelector("#true");
-  trueBtn.onclick = () => {
-    if (correctAnswer === "True") {
-      responseText.textContent = "Correct!";
-    } else {
-      responseText.textContent = "Sorry!";
-    }
-  };
-
+  const questionText = document.querySelector("#question");
+  const nextQuestion = document.querySelector("#next-question");
   const falseBtn = document.querySelector("#false");
-  falseBtn.onclick = () => {
-    if (correctAnswer === "False") {
-      responseText.textContent = "Correct!";
-    } else {
-      responseText.textContent = "Sorry!";
-    }
-  };
 
-  console.log(response.data.results);
-})();
+  const putNewQuestionOnPage = async (totalCounter, correctCounter) => {
+    const response = await axios.get(
+      "https://opentdb.com/api.php?amount=1&category=18&type=boolean"
+    );
+    console.log("totalCounter", totalCounter, "correctCounter", correctCounter);
+
+    const question = response.data.results[0].question;
+    questionText.textContent = decodeHtml(question);
+
+    const correctAnswer = response.data.results[0].correct_answer;
+
+    trueBtn.onclick = () => {
+      if (correctAnswer === "True") {
+        nextQuestion.onclick = async () => {
+          await putNewQuestionOnPage(totalCounter + 1, correctCounter + 1);
+        };
+        responseText.textContent = "Correct!";
+      } else {
+        nextQuestion.onclick = async () => {
+          await putNewQuestionOnPage(totalCounter + 1, correctCounter);
+        };
+        responseText.textContent = "Sorry!";
+      }
+    };
+
+    falseBtn.onclick = () => {
+      if (correctAnswer === "False") {
+        nextQuestion.onclick = async () => {
+          await putNewQuestionOnPage(totalCounter + 1, correctCounter + 1);
+        };
+        responseText.textContent = "Correct!";
+      } else {
+        nextQuestion.onclick = async () => {
+          await putNewQuestionOnPage(totalCounter + 1, correctCounter);
+        };
+        responseText.textContent = "Sorry!";
+      }
+    };
+
+    nextQuestion.onclick = async () => {
+      await putNewQuestionOnPage(totalCounter + 1, correctCounter);
+    };
+  };
+  await putNewQuestionOnPage(1, 0);
+};

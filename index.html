@@ -8,6 +8,13 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
     <title>Trivia</title>
   </head>
   <body>
@@ -17,8 +24,7 @@
     <section class="hero is-primary">
       <div class="hero-body">
         <div class="container">
-          <h1 class="title is-1">Computer Science Trivia</h1>
-          <!-- <h2 class="subtitle">Computer Science History</h2> -->
+          <h1 class="title is-1" id="title-compSci">Computer Science Trivia</h1>
         </div>
       </div>
     </section>
@@ -39,20 +45,20 @@
         </div>
         <div class="card-footer-item">
           <a href="#" id="next-question" class="button is-info is-large">
-            Next Question
-            <!-- <i class="fas fa-angle-right"></i> -->
+            <p class="mr-3">Next Question</p>
+            <i class="fa fa-angle-double-right"></i>
           </a>
         </div>
       </footer>
     </div>
     <section>
-      <!-- <p id="question"></p> -->
-      <!-- <a href="#" id="true" class="button is-primary small">True</a>
-      <a href="#" id="false" class="button is-primary small">false</a> -->
-      <div id="response-msg"></div>
-      <!-- <a href="#" id="next-question" class="button is-primary is-large"
-        >Next Question</a
-      > -->
+      <div class="block">
+        <div class="column">
+          <div class="card">
+            <div class="card-content" id="response-msg"></div>
+          </div>
+        </div>
+      </div>
     </section>
   </body>
 </html>
