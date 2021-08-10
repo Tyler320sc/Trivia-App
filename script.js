@@ -10,6 +10,7 @@ window.onload = async () => {
   const questionText = document.querySelector("#question");
   const nextQuestion = document.querySelector("#next-question");
   const falseBtn = document.querySelector("#false");
+  const score = document.querySelector("#score");
 
   const putNewQuestionOnPage = async (totalCounter, correctCounter) => {
     const response = await axios.get(
@@ -50,9 +51,11 @@ window.onload = async () => {
       }
     };
 
+    score.textContent = `You have answered ${correctCounter} out of ${totalCounter} correct!`;
+
     nextQuestion.onclick = async () => {
       await putNewQuestionOnPage(totalCounter + 1, correctCounter);
     };
   };
-  await putNewQuestionOnPage(1, 0);
+  await putNewQuestionOnPage(0, 0);
 };
