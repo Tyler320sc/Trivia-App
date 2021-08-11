@@ -29,13 +29,18 @@ window.onload = async () => {
           await putNewQuestionOnPage(totalCounter + 1, correctCounter + 1);
         };
         responseText.textContent = "Correct!";
+        // document.location.reload(); // debugging
       } else {
         nextQuestion.onclick = async () => {
           await putNewQuestionOnPage(totalCounter + 1, correctCounter);
         };
         responseText.textContent = "Sorry!";
+        // document.location.reload(); // debugging
       }
     };
+
+    // const refreshBtn = document.querySelector("#my-button");
+    // refreshBtn.onclick = () => document.location.reload();
 
     falseBtn.onclick = () => {
       if (correctAnswer === "False") {
@@ -43,11 +48,13 @@ window.onload = async () => {
           await putNewQuestionOnPage(totalCounter + 1, correctCounter + 1);
         };
         responseText.textContent = "Correct!";
+        // document.location.reload(); // debugging
       } else {
         nextQuestion.onclick = async () => {
           await putNewQuestionOnPage(totalCounter + 1, correctCounter);
         };
         responseText.textContent = "Sorry!";
+        // document.location.reload(); // debugging
       }
     };
 

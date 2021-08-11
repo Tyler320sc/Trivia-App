@@ -21,29 +21,44 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="script.js"></script>
     <script src="https://use.fontawesome.com/4a52d3023a.js"></script>
-    <section class="hero is-primary">
-      <div class="hero-body">
+    <section class="hero level" style="background-color: mediumaquamarine">
+      <div class="hero-body level-item has-text-centered">
         <div class="container">
           <h1 class="title is-1" id="title-compSci">Computer Science Trivia</h1>
         </div>
       </div>
     </section>
     <div class="column">
-      <div class="card">
-        <div class="card-content" id="question"></div>
+      <div class="card level">
+        <div
+          class="card-content level-item has-text-centered"
+          id="question"
+        ></div>
       </div>
       <footer class="card-footer">
-        <div class="card-footer-item">
+        <div
+          class="card-footer-item"
+          style="margin-top: 50px"
+          style="margin-bottom: 50px"
+        >
           <a href="#" id="true" class="button is-success is-large">
             <i class="fa fa-thumbs-o-up"></i>
           </a>
         </div>
-        <div class="card-footer-item">
+        <div
+          class="card-footer-item"
+          style="margin-top: 50px"
+          style="margin-bottom: 50px"
+        >
           <a href="#" id="false" class="button is-danger is-large">
             <i class="fa fa-thumbs-o-down"></i>
           </a>
         </div>
-        <div class="card-footer-item">
+        <div
+          class="card-footer-item"
+          style="margin-top: 50px"
+          style="margin-bottom: 50px"
+        >
           <a href="#" id="next-question" class="button is-info is-large">
             <p class="mr-3">Next Question</p>
             <i class="fa fa-angle-double-right"></i>
@@ -54,8 +69,11 @@
     <section>
       <div class="block">
         <div class="column">
-          <div class="card">
-            <div class="card-content" id="response-msg"></div>
+          <div class="card level">
+            <div
+              class="card-content level-item has-text-centered"
+              id="response-msg"
+            ></div>
           </div>
         </div>
       </div>
@@ -63,11 +81,24 @@
     <section>
       <div class="block">
         <div class="column">
-          <div class="card">
-            <div class="card-content" id="score"></div>
+          <div class="card level">
+            <div
+              class="card-content level-item has-text-centered"
+              id="score"
+            ></div>
           </div>
         </div>
       </div>
     </section>
+    <div>
+      <footer class="footer" style="background-color: mediumaquamarine">
+        <div class="content has-text-centered">
+          <p>
+            <strong>CS Trivia</strong> By Tyler Carroll.
+            <a href="https://github.com/Tyler320sc"> Here's My GitHub</a>.
+          </p>
+        </div>
+      </footer>
+    </div>
   </body>
 </html>
